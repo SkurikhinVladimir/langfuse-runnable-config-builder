@@ -1,6 +1,6 @@
 """Настройка для Langfuse с автоматической обрезкой данных."""
 
-from pydantic import Field
+from pydantic import Field, ConfigDict
 from pydantic_settings import BaseSettings
 
 from langfuse_runnable_config.internal.constants import (
@@ -16,6 +16,11 @@ class LangfuseTruncatingSettings(BaseSettings):
     Автоматически обрезает большие строки и векторы перед отправкой в Langfuse.
     """
 
+    model_config = ConfigDict(
+        env_prefix="LANGFUSE_",
+        case_sensitive=False,
+    )
+
     url: str = Field(..., description="URL сервера Langfuse")
     public_key: str = Field(..., description="Публичный ключ Langfuse")
     secret_key: str = Field(..., description="Секретный ключ Langfuse")
@@ -28,7 +33,3 @@ class LangfuseTruncatingSettings(BaseSettings):
         default=DEFAULT_MAX_VECTOR_ELEMENTS,
         description="Максимальное количество элементов вектора",
     )
-
-    class Config:
-        env_prefix = "LANGFUSE_"
-        case_sensitive = False
