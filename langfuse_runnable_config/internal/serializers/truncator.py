@@ -1,6 +1,6 @@
 """Утилиты для обрезки больших данных при трейсинге."""
 
-from typing import Any, Mapping, Sequence
+from typing import Any, List, Mapping, Sequence
 
 from langchain_core.documents import Document
 
@@ -55,7 +55,7 @@ def _is_vector(data: Sequence[Any]) -> bool:
         return False
 
 
-def _truncate_vector(vector: Sequence[float], max_elements: int) -> list[float]:
+def _truncate_vector(vector: Sequence[float], max_elements: int) -> List[float]:
     """
     Обрезает вектор, показывая только первые элементы.
 

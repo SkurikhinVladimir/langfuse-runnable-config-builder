@@ -1,6 +1,6 @@
 """Базовый mixin для обработчиков с автоматической обрезкой."""
 
-from typing import Any, Sequence
+from typing import Any, Dict, Sequence
 
 from langchain_core.documents import Document
 
@@ -66,7 +66,7 @@ class TruncatingMixin:
         )
 
     def on_retriever_start(
-        self, serialized: dict[str, Any], query: str, **kwargs: Any
+        self, serialized: Dict[str, Any], query: str, **kwargs: Any
     ) -> Any:
         return super().on_retriever_start(
             serialized,
@@ -75,7 +75,7 @@ class TruncatingMixin:
         )
 
     async def on_retriever_start_async(
-        self, serialized: dict[str, Any], query: str, **kwargs: Any
+        self, serialized: Dict[str, Any], query: str, **kwargs: Any
     ) -> Any:
         return await super().on_retriever_start_async(
             serialized,

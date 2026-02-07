@@ -1,12 +1,13 @@
 """Определение версии установленного Langfuse."""
 
 import logging
+from typing import Optional
 
 logger = logging.getLogger(__name__)
 
 # Поддерживаемые версии
-SUPPORTED_VERSIONS: frozenset[int] = frozenset({2, 3})
-TESTED_VERSIONS: frozenset[int] = frozenset({2, 3})
+SUPPORTED_VERSIONS = frozenset({2, 3})
+TESTED_VERSIONS = frozenset({2, 3})
 
 
 def detect_langfuse_version() -> int:
@@ -31,7 +32,7 @@ def detect_langfuse_version() -> int:
     raise ImportError("Langfuse не установлен. Установите его: pip install langfuse")
 
 
-def _detect_from_metadata() -> int | None:
+def _detect_from_metadata() -> Optional[int]:
     """Определяет версию из метаданных пакета."""
     try:
         import langfuse  # type: ignore[import-untyped]
@@ -49,7 +50,7 @@ def _detect_from_metadata() -> int | None:
         return None
 
 
-def _detect_from_modules() -> int | None:
+def _detect_from_modules() -> Optional[int]:
     """Определяет версию по доступным модулям (fallback)."""
     # Проверяем v3+ (новый API)
     try:
