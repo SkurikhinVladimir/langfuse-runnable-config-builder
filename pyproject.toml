@@ -10,9 +10,9 @@ readme = "README.md"
 requires-python = ">=3.8.1"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "v.skurikhin", email = "skurikhinvladimir1998@gmail.com"}
 ]
-keywords = ["langfuse", "langchain", "tracing", "observability", "llm"]
+keywords = ["langfuse", "langchain", "tracing", "observability", "llm", "monitoring"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -23,6 +23,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
 dependencies = [
@@ -42,9 +44,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/langfuse-config"
-Documentation = "https://github.com/yourusername/langfuse-config#readme"
-Repository = "https://github.com/yourusername/langfuse-config"
+Homepage = "https://github.com/SkurikhinVladimir/langfuse-runnable-config-builder"
+Documentation = "https://github.com/SkurikhinVladimir/langfuse-runnable-config-builder#readme"
+Repository = "https://github.com/SkurikhinVladimir/langfuse-runnable-config-builder"
+Issues = "https://github.com/SkurikhinVladimir/langfuse-runnable-config-builder/issues"
 
 [tool.setuptools]
 packages = {find = {}}

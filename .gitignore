@@ -38,3 +38,4 @@ archive.zip
 
 # uv
 .python-version
+uv.lock
