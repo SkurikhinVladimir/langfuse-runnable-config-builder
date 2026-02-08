@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "langfuse-runnable-config"
-version = "0.1.0"
+version = "0.2.0"
 description = "Утилита для создания RunnableConfig с Langfuse callbacks. Автоматически определяет версию Langfuse и настраивает callbacks с опциональной обрезкой данных."
 readme = "README.md"
 requires-python = ">=3.8.1"
