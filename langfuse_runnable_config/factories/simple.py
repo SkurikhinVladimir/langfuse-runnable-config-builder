@@ -12,7 +12,7 @@ from langfuse_runnable_config.internal.version import detect_langfuse_version
 logger = logging.getLogger(__name__)
 
 
-class LangfuseConfig:
+class LangfuseRunnableConfig:
     """
     Простая фабрика для создания RunnableConfig с Langfuse callback'ами.
 
@@ -20,7 +20,7 @@ class LangfuseConfig:
     соответствующий обработчик без обрезки данных.
 
     Для автоматической обрезки больших данных используйте
-    LangfuseTruncatingConfig.
+    LangfuseTruncatingRunnableConfig.
     """
 
     @staticmethod
@@ -105,7 +105,7 @@ class LangfuseConfig:
 
         Автоматически определяет версию установленного Langfuse и использует
         соответствующий обработчик. Для обрезки данных используйте
-        LangfuseTruncatingConfig.create_callback().
+        LangfuseTruncatingRunnableConfig.create_callback().
 
         Args:
             settings: Объект настроек LangfuseSettings
@@ -118,7 +118,7 @@ class LangfuseConfig:
             CallbackHandler для Langfuse без обрезки данных
         """
         try:
-            settings_obj = LangfuseConfig._prepare_settings(
+            settings_obj = LangfuseRunnableConfig._prepare_settings(
                 settings, url, public_key, secret_key, debug
             )
             version = detect_langfuse_version()
@@ -151,7 +151,7 @@ class LangfuseConfig:
 
         Автоматически определяет версию установленного Langfuse и использует
         соответствующий обработчик. Для обрезки данных используйте
-        LangfuseTruncatingConfig.create_config().
+        LangfuseTruncatingRunnableConfig.create_config().
 
         Args:
             settings: Объект настроек LangfuseSettings
@@ -164,7 +164,7 @@ class LangfuseConfig:
             RunnableConfig с настроенным Langfuse callback'ом
         """
         try:
-            settings_obj = LangfuseConfig._prepare_settings(
+            settings_obj = LangfuseRunnableConfig._prepare_settings(
                 settings, url, public_key, secret_key, debug
             )
             version = detect_langfuse_version()

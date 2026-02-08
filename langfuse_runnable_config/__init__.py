@@ -4,7 +4,7 @@ Langfuse Config - Утилита для интеграции Langfuse с LangCha
 Главный API для получения RunnableConfig с автоматической настройкой Langfuse callbacks.
 """
 
-from langfuse_runnable_config.factories import LangfuseConfig, LangfuseTruncatingConfig
+from langfuse_runnable_config.factories import LangfuseRunnableConfig, LangfuseTruncatingRunnableConfig
 from langfuse_runnable_config.settings import (
     LangfuseSettings,
     LangfuseTruncatingSettings,
@@ -13,8 +13,8 @@ from langfuse_runnable_config.settings import (
 __version__ = "0.1.0"
 
 __all__ = [
-    "LangfuseConfig",
-    "LangfuseTruncatingConfig",
+    "LangfuseRunnableConfig",
+    "LangfuseTruncatingRunnableConfig",
     "LangfuseSettings",
     "LangfuseTruncatingSettings",
 ]

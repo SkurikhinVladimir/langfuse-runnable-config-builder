@@ -13,10 +13,10 @@ pip install langfuse-runnable-config langfuse
 Три способа инициализации:
 
 ```python
-from langfuse_runnable_config import LangfuseConfig, LangfuseSettings
+from langfuse_runnable_config import LangfuseRunnableConfig, LangfuseSettings
 
 # 1. Прямая передача параметров
-config = LangfuseConfig.create_config(
+runnable_config = LangfuseRunnableConfig.create_config(
     url="https://cloud.langfuse.com",
     public_key="pk-...",
     secret_key="sk-...",
@@ -24,35 +24,35 @@ config = LangfuseConfig.create_config(
 
 # 2. Через объект настроек
 settings = LangfuseSettings(url="...", public_key="...", secret_key="...")
-config = LangfuseConfig.create_config(settings=settings)
+runnable_config = LangfuseRunnableConfig.create_config(settings=settings)
 
 # 3. Из переменных окружения
-config = LangfuseConfig.create_config()  # или settings = LangfuseSettings()
+runnable_config = LangfuseRunnableConfig.create_config()  # или settings = LangfuseSettings()
 ```
 
 Применение:
 
 ```python
 chain = prompt | llm
-chain = chain.with_config(config)
+chain = chain.with_config(runnable_config)
 chain.invoke(input)
 ```
 
 Создание callback:
 
 ```python
-callback = LangfuseConfig.create_callback()  # все три способа работают
+callback = LangfuseRunnableConfig.create_callback()  # все три способа работают
 chain.invoke(input, config={"callbacks": [callback]})
 ```
 
 С автоматической обрезкой данных:
 
 ```python
-from langfuse_runnable_config import LangfuseTruncatingConfig, LangfuseTruncatingSettings
+from langfuse_runnable_config import LangfuseTruncatingRunnableConfig, LangfuseTruncatingSettings
 
-config = LangfuseTruncatingConfig.create_config()
+runnable_config = LangfuseTruncatingRunnableConfig.create_config()
 # или с параметрами обрезки
-config = LangfuseTruncatingConfig.create_config(
+runnable_config = LangfuseTruncatingRunnableConfig.create_config(
     url="...", public_key="...", secret_key="...",
     truncate_max_length=5000,
     truncate_max_vector_elements=5,

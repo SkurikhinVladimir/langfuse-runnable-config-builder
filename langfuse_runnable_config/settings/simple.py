@@ -1,7 +1,7 @@
 """Простая настройка для Langfuse без обрезки данных."""
 
-from pydantic import Field, ConfigDict
-from pydantic_settings import BaseSettings
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class LangfuseSettings(BaseSettings):
@@ -12,9 +12,12 @@ class LangfuseSettings(BaseSettings):
     если нужна обрезка больших строк и векторов.
     """
 
-    model_config = ConfigDict(
+    model_config = SettingsConfigDict(  # type: ignore[assignment]
+        env_file=".env",
+        env_file_encoding="utf-8",
         env_prefix="LANGFUSE_",
         case_sensitive=False,
+        extra="ignore",
     )
 
     url: str = Field(..., description="URL сервера Langfuse")

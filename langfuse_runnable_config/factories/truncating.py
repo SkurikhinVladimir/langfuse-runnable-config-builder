@@ -18,7 +18,7 @@ from langfuse_runnable_config.internal.version import detect_langfuse_version
 logger = logging.getLogger(__name__)
 
 
-class LangfuseTruncatingConfig:
+class LangfuseTruncatingRunnableConfig:
     """
     Фабрика для создания RunnableConfig с Langfuse callback'ами и автоматической обрезкой.
 
@@ -132,7 +132,7 @@ class LangfuseTruncatingConfig:
             CallbackHandler для Langfuse с автоматической обрезкой
         """
         try:
-            settings_obj = LangfuseTruncatingConfig._prepare_settings(
+            settings_obj = LangfuseTruncatingRunnableConfig._prepare_settings(
                 settings,
                 url,
                 public_key,
@@ -187,7 +187,7 @@ class LangfuseTruncatingConfig:
             RunnableConfig с настроенным Langfuse callback'ом с обрезкой
         """
         try:
-            settings_obj = LangfuseTruncatingConfig._prepare_settings(
+            settings_obj = LangfuseTruncatingRunnableConfig._prepare_settings(
                 settings,
                 url,
                 public_key,
